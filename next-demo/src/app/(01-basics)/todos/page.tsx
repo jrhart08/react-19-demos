@@ -14,7 +14,7 @@ export default async function Todos() {
   return (
     <div>
       <div className="text-center mb-8">
-        <h1 className="text-4xl text-center">Demo - Client-side Rendering</h1>
+        <h1 className="text-4xl text-center">Demo - Basic Server Components</h1>
         {user && <p>Hello, {user.firstName}!</p>}
       </div>
 

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
@@ -32,20 +33,18 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header className="p-8 border-b border-black/10 flex items-center justify-between gap-16">
-          <h1 className="text-2xl">Examples</h1>
+          <h1 className="text-2xl">
+            <a href="/">Demos</a>
+          </h1>
           <ul className="flex gap-8">
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <Separator />
             <li>
               <a href="/todos">Basic</a>
             </li>
             <li>
-              <a href="/todos-loading">Loading</a>
+              <a href="/todos-hooks">Hooks</a>
             </li>
             <li>
-              <a href="/todos-children/optimized">Children as props</a>
+              <a href="/todos-no-client">No client code</a>
             </li>
             <Separator />
             <li>
@@ -54,12 +53,8 @@ export default function RootLayout({
             <li>
               <a href="/todos-data-streaming">Data Streaming</a>
             </li>
-            <Separator />
             <li>
-              <a href="/todos-hooks">Hooks</a>
-            </li>
-            <li>
-              <a href="/todos-no-client">No client code</a>
+              <a href="/todos-loading">Loading</a>
             </li>
             <Separator />
             <li>
@@ -69,6 +64,10 @@ export default function RootLayout({
               <a href="/todos-server-functions-inline">
                 Server Functions (Inline)
               </a>
+            </li>
+            <Separator />
+            <li>
+              <a href="/todos-children">Children as props</a>
             </li>
           </ul>
         </header>
