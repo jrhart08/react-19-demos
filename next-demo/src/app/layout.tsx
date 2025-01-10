@@ -48,6 +48,17 @@ export default function RootLayout({
             <li>
               <a href="/todos-hooks">Hooks</a>
             </li>
+            <li>
+              <a href="/todos-no-client">No client code</a>
+            </li>
+            <li>
+              <a href="/todos-server-functions">Server Functions</a>
+            </li>
+            <li>
+              <a href="/todos-server-functions-inline">
+                Server Functions (Inline)
+              </a>
+            </li>
           </ul>
         </header>
         <main className="container mx-auto my-8">{children}</main>

@@ -1,9 +1,14 @@
 import { getTodos } from "@/fake-apis/getTodos";
 import { getUserInfo } from "@/fake-apis/getUserInfo";
 import { format } from "date-fns";
-import { addTodo } from "../functions/addTodo";
 
 export default async function Todos() {
+  async function addTodo() {
+    "use server";
+
+    console.log("adding todo (inline)");
+  }
+
   const [user, todos] = await Promise.all([getUserInfo(0), getTodos(0)]);
 
   const todoListItems = todos.map((todo) => (
