@@ -1,10 +1,20 @@
-import { getTodos } from "@/fake-apis/getTodos";
-import { getUserInfo } from "@/fake-apis/getUserInfo";
-import { format } from "date-fns";
-import { addTodo } from "../functions/addTodo";
+"use client";
 
-export default async function Todos() {
-  const [user, todos] = await Promise.all([getUserInfo(0), getTodos(0)]);
+import type { TodoDto } from "@/fake-apis/getTodos";
+import type { UserInfo } from "@/fake-apis/getUserInfo";
+import { format } from "date-fns";
+
+interface Props {
+  user: UserInfo;
+  todos: TodoDto[];
+}
+
+export default function TodosClient({ user, todos }: Props) {
+  async function addTodo() {
+    "use server";
+
+    console.log("adding todo (inline)");
+  }
 
   const todoListItems = todos.map((todo) => (
     <li key={todo.id} className="flex flex-col gap-2 border rounded mb-4 p-4">
@@ -23,14 +33,13 @@ export default async function Todos() {
       <h1 className="text-4xl text-center uppercase">Todo List</h1>
       <ul>{todoListItems}</ul>
 
-      <form action={addTodo}>
-        <button
-          type="submit"
-          className="p-4 border rounded-full shadow-md text-white bg-blue-500"
-        >
-          Add Todo
-        </button>
-      </form>
+      <button
+        type="submit"
+        className="p-4 border rounded-full shadow-md text-white bg-blue-500"
+        onClick={() => addTodo()}
+      >
+        Add Todo
+      </button>
     </div>
   );
 }
