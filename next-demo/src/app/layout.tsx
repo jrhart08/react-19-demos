@@ -44,6 +44,9 @@ export default function RootLayout({
             <li>
               <a href="/todos-loading">Loading</a>
             </li>
+            <li>
+              <a href="/todos-children/optimized">Children as props</a>
+            </li>
             <Separator />
             <li>
               <a href="/todos-suspense">Suspense</a>
