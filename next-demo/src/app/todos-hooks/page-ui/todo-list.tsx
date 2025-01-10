@@ -1,11 +1,8 @@
-"use client";
-
-import { TodoDto } from "@/fake-apis/getTodos";
 import { format } from "date-fns";
-import { use } from "react";
+import { usePageProps } from "./context";
 
-export function TodoList({ todosStream }: { todosStream: Promise<TodoDto[]> }) {
-  const todos = use(todosStream);
+export function TodoList() {
+  const { todos } = usePageProps();
 
   const todoListItems = todos.map((todo) => (
     <li key={todo.id} className="flex flex-col gap-2 border rounded mb-4 p-4">
@@ -14,5 +11,10 @@ export function TodoList({ todosStream }: { todosStream: Promise<TodoDto[]> }) {
     </li>
   ));
 
-  return <>{todoListItems}</>;
+  return (
+    <div>
+      <h1 className="text-4xl text-center uppercase">Todo List</h1>
+      <ul>{todoListItems}</ul>
+    </div>
+  );
 }

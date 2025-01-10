@@ -35,7 +35,7 @@ export default async function TodosSuspense() {
   const user = await getUserInfo();
 
   return (
-    <div className="container mx-auto">
+    <div>
       <div className="text-center mb-8">
         <h1 className="text-4xl text-center">Demo - Client-side Rendering</h1>
         {user && <p>Hello, {user.firstName}!</p>}

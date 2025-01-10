@@ -7,8 +7,8 @@ export interface UserInfo {
   lastName: string;
 }
 
-export async function getUserInfo(): Promise<UserInfo> {
-  await sleep(1000);
+export async function getUserInfo(delayMs = 1000): Promise<UserInfo> {
+  await sleep(delayMs);
 
   return {
     id: "user-1",

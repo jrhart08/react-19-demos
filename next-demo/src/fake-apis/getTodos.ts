@@ -7,8 +7,8 @@ export interface TodoDto {
   text: string;
 }
 
-export async function getTodos(): Promise<TodoDto[]> {
-  await sleep(3000);
+export async function getTodos(delayMs = 3000): Promise<TodoDto[]> {
+  await sleep(delayMs);
 
   const today = new Date();
 
